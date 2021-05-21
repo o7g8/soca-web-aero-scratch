@@ -1,6 +1,7 @@
 static
 logs
 tmp
+__pycache__
 db.sqlite
 dcv_secret_key.txt
 flask_secret_key.txt

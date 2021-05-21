@@ -79,6 +79,7 @@ case "$1" in
 
             # Launching process
             #$UWSGI_BIN --master --https $UWSGI_BIND,cert.crt,cert.key --wsgi-file $UWSGI_FILE --processes $UWSGI_PROCESSES --threads $UWSGI_THREADS --daemonize logs/uwsgi.log --enable-threads --buffer-size $BUFFER_SIZE --check-static /apps/soca/$SOCA_CONFIGURATION/cluster_web_ui/static
+            # my changes
             #$UWSGI_BIN --honour-stdin --workers 1 --enable-threads  --https $UWSGI_BIND,cert.crt,cert.key --wsgi-file $UWSGI_FILE --check-static /apps/soca/$SOCA_CONFIGURATION/cluster_web_ui/static
             $UWSGI_BIN --honour-stdin  --workers 1 --https $UWSGI_BIND,cert.crt,cert.key --wsgi-file $UWSGI_FILE --processes 1 --threads $UWSGI_THREADS  --enable-threads --buffer-size $BUFFER_SIZE --check-static /apps/soca/$SOCA_CONFIGURATION/cluster_web_ui/static
         else
