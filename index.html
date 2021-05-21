@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Scale-Out Computing on AWS - HPC made easy">
+<meta name="author" content="Mickael Crozes">
+<title>Scale-Out Computing on AWS</title>
+<link rel="shortcut icon" href=/static/img/soca_logo.ico />
+<meta name="robots" content="noindex">
+<link href="/static/css/icons.css" rel="stylesheet">
+<link href="/static/css/app.css" rel="stylesheet">
+<link href="/static/css/fonts.css" rel="stylesheet">
+<link href="/static/css/prism.css" rel="stylesheet">
+
+<!-- Bootstrap core JavaScript-->
+<script src="/static/vendor/jquery/jquery.js"></script>
+<script src="/static/js/popper.min.js"></script>
+<script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Page Specific -->
+
+
+
+</head>
+
+<body class="bg-aws">
+  <div class="container">
+
+    <div class="row justify-content-center">
+
+      <div class="col-md-6">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+          <div class="card-body p-0">
+            <div class="row">
+              <div class="col-md-12">
+
+
+                <div class="p-5">
+                  <div class="text-center">
+                      <img class="img-fluid" height="150px" width="150px" src="/static/img/soca_logo_rev2.png">
+                      <hr>
+                  </div>
+                  <form class="user" method="post" action="/auth">
+                    <div class="form-group">
+                      <input type="text" required class="form-control form-control-user" id="user" name="user" aria-describedby="user" placeholder="Username">
+                    </div>
+                    <div class="form-group">
+                      <input type="password" required class="form-control form-control-user" id="password" name="password" placeholder="Password">
+                    </div>
+
+                    <div align="center">
+                         <input type="hidden" name="csrf_token" value="IjdmODg0ZDBiOGNhMjAxYzMzNjM1YTY5ODliYmUxYTk0MTcxMjA5MGEi.YKdqUg.u9QJm2Dmk0xRYqNal_pPvKVElaU">
+                        
+                        <button type="submit" class="btn btn-success btn-block">Login</button>
+                    </div>
+                  </form>
+
+                    
+                        
+                    
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  
+
+
+  <!-- Core plugin JavaScript-->
+  <script src="/static/vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="/static/js/prism.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="/static/js/app.min.js"></script>
+
+
+  <!-- hide left sidebar when using soca desktop app -->
+  <script>
+      var ua = navigator.userAgent;
+       if (/Soca-Desktop-App/i.test(ua)) {
+           document.getElementById("accordionSidebar").style.display = "none"
+        }
+
+  </script>
+
+
+
+
+</body>
+
+</html>
