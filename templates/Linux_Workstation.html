@@ -1,4 +1,3 @@
-<!--OGG: TODO - check the processing of allow_instance_change for different profiles -->
 {% if n in user_sessions.keys() %}
 {% for session_number, session_data in user_sessions.items() %}
     {% if session_number == n %}
@@ -205,21 +204,8 @@
                                         <label for="instance_type" class="col-sm-3 col-form-label">Resize Hardware</label>
                                         <div class="col-sm-9">
                                             <select class="form-control" name='instance_type' id="instance_type">
-                                                <option value="" disabled="disabled">-- Quick Launch 2D --</option>
-                                                <option selected="true" value="m5.large">2D - Small (2 vCPUs - 8 GB ram)</option>
-                                                <option value="m5.2xlarge">2D - Medium (8 vCPUs - 32 GB ram)</option>
-                                                <option value="m5.4xlarge">2D - Large (16 vCPUs - 64 GB ram)</option>
-                                                <option value="m5.12xlarge">2D - Extra Large (48 vCPUs - 192 GB ram)</option>
-                                                <option value="m5.24xlarge">2D - XXL Large (96 vCPUs - 384 GB ram)</option>
-                                                <option value="" disabled="disabled">-- Quick Launch 3D --</option>
-                                            <option value="g4dn.xlarge">3D - Small (4 vCPUs - 16 GB ram - 1 T4 GPU)</option>
-                                            <option value="g4dn.4xlarge">3D - Medium (16 vCPUs - 64 GB ram - 1 T4 GPU)</option>
-                                            <option value="g4dn.8xlarge">3D - Large (32 vCPUs - 128 GB ram - 1 T4 GPU)</option>
-                                            <option value="g4dn.16xlarge">3D - Extra Large (64 vCPUs - 256 GB ram - 1 T4 GPU)</option>
-                                                <option value="" disabled="disabled">-- Specific type --</option>
-                                                {%  for instance in all_instances %}
-                                                    <option value="{{ instance }}">{{ instance }}</option>
-                                                {% endfor %}
+                                                <!--OGG: pass prepped list of instances -->
+                                                {{ instance_types}}
                                             </select>
                                         </div>
                                     </div>
@@ -552,7 +538,7 @@
            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
            <input type="hidden" id="session_number" name="session_number" value="{{ n }}">
            <!-- OGG: pass a title -->
-           <span class="text">Launch my Session #{{ n }}</span>
+           <span class="text">{{ launch_label }} #{{ n }}</span>
        </button>
    </div>
 </form>

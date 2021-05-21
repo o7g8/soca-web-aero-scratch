@@ -29,6 +29,7 @@
                                 {% set card_header = "Linux Workstation" %}
                                 {% set card_header2 = "Linux Workstation" %}
                                 {% set session_name_label = "Linux Workstation" %}
+                                {% set launch_label = "Launch my Linux Workstation" %}
 
                                 {% from 'desktop_instances_macros.html' import GetLinuxWorkstationInstanceTypes %}
                                 {% set instance_types = GetLinuxWorkstationInstanceTypes() %}
@@ -37,6 +38,7 @@
                                 {% set card_header = "Linux GPU Workstation" %}
                                 {% set card_header2 = "Linux: GPU" %}
                                 {% set session_name_label = "Visual Post-Processing/CAD" %}
+                                {% set launch_label = "Launch my GPU Session" %}
 
                                 {% from 'desktop_instances_macros.html' import GetLinuxGPUWorkstationInstanceTypes %}
                                 {% set instance_types = GetLinuxGPUWorkstationInstanceTypes() %}
@@ -45,6 +47,7 @@
                                 {% set card_header = "High Memory Linux Workstation" %}
                                 {% set card_header2 = "Linux: High Memory" %}
                                 {% set session_name_label = "High Memory - Interactive Meshing" %}
+                                {% set launch_label = "Launch my High Memory Session" %}
                             
                                 {% from 'desktop_instances_macros.html' import GetLinuxHighMemInstanceTypes %}
                                 {% set instance_types = GetLinuxHighMemInstanceTypes() %}
@@ -53,6 +56,8 @@
                                 {% set card_header = "Linux Session" %}
                                 {% set card_header2 = "Linux Session" %}
                                 {% set session_name_label = "Session Name" %}
+                                {% set launch_label = "Launch my Session" %}
+
                                 {% from 'desktop_instances_macros.html' import GetLinuxSessionInstanceTypes %}
                                 {% set instance_types = GetLinuxSessionInstanceTypes(all_instances) %}
                             {% endif %}
