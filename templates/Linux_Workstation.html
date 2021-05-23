@@ -40,7 +40,7 @@
             </div><!--end  terminate  -->
 
         <div class="card-header py-3">
-            <!-- OGG: pass label: Linux Workstation / Linux GPU Workstation /   -->
+            <!-- OGG: pass card_header -->
             <h6 class="m-0 font-weight-bold text-primary"><i data-toggle="tooltip" data-placement="top" title="Troubleshooting: EC2 tag is {{ session_data.tag_uuid }}, instance ID is  {{ session_data.session_instance_id }}" class="fas fa-question-circle"></i> {{ card_header }} #{{ n }}
                 {% if session_data.session_state == 'running' %}
                     <div class="float-right"><button class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#schedule{{ n }}">Schedule</button>
@@ -463,13 +463,13 @@
 {% endfor %}
 {% else %}
 <div class="card-header py-3">
-    <!-- OGG: pass parameter: Linux Workstation / Linux: GPU  -->
+    <!-- OGG: pass card_header2  -->
     <h6 class="m-0 font-weight-bold text-primary">{{card_header2}} #{{ n }}</h6>
 </div>
 <div class="card-body">
 <form method="post" action="/remote_desktop/create">
     <div class="form-group row">
-        <!-- OGG: pass parameter: Session Name / Visual Post-Processing/CAD  -->
+        <!-- OGG: pass session_name_label  -->
       <label for="walltime" data-toggle="tooltip" data-placement="top" title="Pick a simple name to identify your graphical session" class="col-sm-4 col-form-label">{{session_name_label}}</label>
       <div class="col-sm-8">
           <input id="session_name" class="form-control"  placeholder="Desktop{{ n }}" type="text"  name="session_name" maxlength="255">

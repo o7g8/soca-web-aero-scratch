@@ -40,7 +40,8 @@
                                               </div><!--end  terminate  -->
 
                                           <div class="card-header py-3">
-                                              <h6 class="m-0 font-weight-bold text-primary"><i data-toggle="tooltip" data-placement="top" title="Troubleshooting: EC2 tag is {{ session_data.tag_uuid }}, instance ID is  {{ session_data.session_instance_id }}" class="fas fa-question-circle"></i> Windows Session #{{ n }}
+                                              <!-- OGG: pass card_header -->
+                                              <h6 class="m-0 font-weight-bold text-primary"><i data-toggle="tooltip" data-placement="top" title="Troubleshooting: EC2 tag is {{ session_data.tag_uuid }}, instance ID is  {{ session_data.session_instance_id }}" class="fas fa-question-circle"></i> {{ card_header }} #{{ n }}
                                                   {% if session_data.session_state == 'running' %}
                                                       <div class="float-right"><button class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#password{{ n }}">Get Password</button>&nbsp;<button class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#schedule{{ n }}">Schedule</button>
                                                            {% if session_data.support_hibernation == true %}
@@ -203,21 +204,8 @@
                                                                           <label for="instance_type" class="col-sm-3 col-form-label">Resize Hardware</label>
                                                                           <div class="col-sm-9">
                                                                               <select class="form-control" name='instance_type' id="instance_type">
-                                                                                  <option value="" disabled="disabled">-- Quick Launch 2D --</option>
-                                                                                  <option selected="true" value="m5.large">2D - Small (2 vCPUs - 8 GB ram)</option>
-                                                                                  <option value="m5.2xlarge">2D - Medium (8 vCPUs - 32 GB ram)</option>
-                                                                                  <option value="m5.4xlarge">2D - Large (16 vCPUs - 64 GB ram)</option>
-                                                                                  <option value="m5.12xlarge">2D - Extra Large (48 vCPUs - 192 GB ram)</option>
-                                                                                  <option value="m5.24xlarge">2D - XXL Large (96 vCPUs - 384 GB ram)</option>
-                                                                                  <option value="" disabled="disabled">-- Quick Launch 3D --</option>
-                                                                                  <option value="g4dn.xlarge">3D - Small (4 vCPUs - 16 GB ram - 1 T4 GPU)</option>
-                                                                                  <option value="g4dn.4xlarge">3D - Medium (16 vCPUs - 64 GB ram - 1 T4 GPU)</option>
-                                                                                  <option value="g4dn.8xlarge">3D - Large (32 vCPUs - 128 GB ram - 1 T4 GPU)</option>
-                                                                                  <option value="g4dn.16xlarge">3D - Extra Large (64 vCPUs - 256 GB ram - 1 T4 GPU)</option>
-                                                                                  <option value="" disabled="disabled">-- Specific type --</option>
-                                                                                  {%  for instance in all_instances %}
-                                                                                      <option value="{{ instance }}">{{ instance }}</option>
-                                                                                  {% endfor %}
+                                                                                <!--OGG: pass prepped list of instances -->
+                                                                                {{ instance_types}}
                                                                               </select>
                                                                           </div>
                                                                       </div>
@@ -376,12 +364,14 @@
                                   {% endfor %}
                               {% else %}
                                   <div class="card-header py-3">
-                                      <h6 class="m-0 font-weight-bold text-primary">Windows Session #{{ n }}</h6>
+                                    <!-- OGG: pass card_header2  -->
+                                      <h6 class="m-0 font-weight-bold text-primary">{{card_header2}} #{{ n }}</h6>
                                   </div>
                                   <div class="card-body">
                                   <form method="post" action="/remote_desktop_windows/create">
                                       <div class="form-group row">
-                                        <label for="walltime" data-toggle="tooltip" data-placement="top" title="Pick a simple name to identify your graphical session" class="col-sm-4 col-form-label">Session Name</label>
+                                        <!-- OGG: pass session_name_label  -->
+                                        <label for="walltime" data-toggle="tooltip" data-placement="top" title="Pick a simple name to identify your graphical session" class="col-sm-4 col-form-label">{{session_name_label}}</label>
                                         <div class="col-sm-8">
                                             <input id="session_name" class="form-control"  placeholder="Desktop{{ n }}" type="text"  name="session_name" maxlength="255">
                                         </div>
@@ -408,21 +398,8 @@
                                           <label for="instance_type" data-toggle="tooltip" data-placement="top" title="2D session does not support GPU acceleration. This type of session is good for non-intensive compute activities. 3D session provides full GPU support. This is recommended for graphic intensive operations such as 3D model rendering or post-processing." class="col-sm-4 col-form-label">Session Type</label>
                                           <div class="col-sm-8">
                                               <select class="form-control" name='instance_type' id="instance_type">
-                                                  <option value="" disabled="disabled">-- Quick Launch 2D --</option>
-                                                  <option selected="true" value="m5.large">2D - Small (2 vCPUs - 8 GB ram)</option>
-                                                  <option value="m5.2xlarge">2D - Medium (8 vCPUs - 32 GB ram)</option>
-                                                  <option value="m5.4xlarge">2D - Large (16 vCPUs - 64 GB ram)</option>
-                                                  <option value="m5.12xlarge">2D - Extra Large (48 vCPUs - 192 GB ram)</option>
-                                                  <option value="m5.24xlarge">2D - XXL Large (96 vCPUs - 384 GB ram)</option>
-                                                  <option value="" disabled="disabled">-- Quick Launch 3D --</option>
-                                                  <option value="g4dn.xlarge">3D - Small (4 vCPUs - 16 GB ram - 1 T4 GPU)</option>
-                                                  <option value="g4dn.4xlarge">3D - Medium (16 vCPUs - 64 GB ram - 1 T4 GPU)</option>
-                                                  <option value="g4dn.8xlarge">3D - Large (32 vCPUs - 128 GB ram - 1 T4 GPU)</option>
-                                                  <option value="g4dn.16xlarge">3D - Extra Large (64 vCPUs - 256 GB ram - 1 T4 GPU)</option>
-                                                  <option value="" disabled="disabled">-- Specific type --</option>
-                                                  {%  for instance in all_instances %}
-                                                      <option value="{{ instance }}">{{ instance }}</option>
-                                                  {% endfor %}
+                                                <!--OGG: pass prepped list of instances -->
+                                                {{ instance_types}}
                                               </select>
                                           </div>
                                       </div>
@@ -464,7 +441,8 @@
                                              </span>
                                              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                                              <input type="hidden" id="session_number" name="session_number" value="{{ n }}">
-                                             <span class="text">Launch my Session #{{ n }}</span>
+                                             <!-- OGG: pass a title -->
+                                            <span class="text">{{ launch_label }} #{{ n }}</span>
                                          </button>
                                      </div>
                                   </form>
