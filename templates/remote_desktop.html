@@ -31,8 +31,8 @@
                                 {% set session_name_label = "Linux Workstation" %}
                                 {% set launch_label = "Launch my Linux Workstation" %}
 
-                                {% from 'desktop_instances_macros.html' import GetLinuxWorkstationInstanceTypes %}
-                                {% set instance_types = GetLinuxWorkstationInstanceTypes() %}
+                                {% from 'desktop_instances_macros.html' import GetWorkstationInstanceTypes %}
+                                {% set instance_types = GetWorkstationInstanceTypes() %}
 
                             {% elif n == 2 %}
                                 {% set card_header = "Linux GPU Workstation" %}
@@ -40,8 +40,8 @@
                                 {% set session_name_label = "Visual Post-Processing/CAD" %}
                                 {% set launch_label = "Launch my GPU Session" %}
 
-                                {% from 'desktop_instances_macros.html' import GetLinuxGPUWorkstationInstanceTypes %}
-                                {% set instance_types = GetLinuxGPUWorkstationInstanceTypes() %}
+                                {% from 'desktop_instances_macros.html' import GetGPUWorkstationInstanceTypes %}
+                                {% set instance_types = GetGPUWorkstationInstanceTypes() %}
 
                             {% elif n == 3 %}
                                 {% set card_header = "High Memory Linux Workstation" %}
@@ -49,8 +49,8 @@
                                 {% set session_name_label = "High Memory - Interactive Meshing" %}
                                 {% set launch_label = "Launch my High Memory Session" %}
                             
-                                {% from 'desktop_instances_macros.html' import GetLinuxHighMemInstanceTypes %}
-                                {% set instance_types = GetLinuxHighMemInstanceTypes() %}
+                                {% from 'desktop_instances_macros.html' import GetHighMemInstanceTypes %}
+                                {% set instance_types = GetHighMemInstanceTypes() %}
 
                             {% elif n == 4 %}
                                 {% set card_header = "Linux Session" %}
@@ -58,8 +58,8 @@
                                 {% set session_name_label = "Session Name" %}
                                 {% set launch_label = "Launch my Session" %}
 
-                                {% from 'desktop_instances_macros.html' import GetLinuxSessionInstanceTypes %}
-                                {% set instance_types = GetLinuxSessionInstanceTypes(all_instances) %}
+                                {% from 'desktop_instances_macros.html' import GetSessionInstanceTypes %}
+                                {% set instance_types = GetSessionInstanceTypes(all_instances) %}
                             {% endif %}
                             {% include 'Linux_Workstation.html' %}
                           </div> <!-- card -->
