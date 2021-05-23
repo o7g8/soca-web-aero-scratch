@@ -1,27 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-     {% include 'common/header.html' %}
-
-</head>
-
-<body id="page-top">
-
-  <div id="wrapper">
-    {% include 'common/vertical_menu_bar.html' %}
-    <div id="content-wrapper" class="d-flex flex-column">
-
-      <div id="content">
-          <br>
-          <div class="container-fluid">
-              {% include 'common/horizontal_menu_bar.html' %}
-              {% include 'common/flashed_messages.html' %}
-              <div class="row">
-                  {% for n in range(1,max_number_of_sessions + 1) %}
-                    <div class="col-md-6">
-                          <div class="card shadow mb-4">
                               {% if n in user_sessions.keys() %}
                                   {% for session_number, session_data in user_sessions.items() %}
                                       {% if session_number == n %}
@@ -494,46 +470,3 @@
                                   </form>
                               {% endif %}
                               </div>
-
-
-                          </div> <!-- card -->
-                          </div> <!-- col md 6 -->
-                {% endfor %}
-
-              </div>
-          </div>
-      </div>
-
-  </div>
-
-  <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-  </a>
-    <script>
-    $(document).ready(function() {
-        // enable tooltip
-        $(function () {
-            $('[data-toggle="tooltip"]').tooltip()
-        })})
-
-    function manageSchedule(scheduleId, mode){
-        if (mode === "custom")
-        {
-            $("#slider-"+scheduleId).css('display', 'block');
-            var startValue = $("#slider-"+scheduleId).slider("values")[0]
-            var endValue =  $("#slider-"+scheduleId).slider("values")[1]
-            $("#slider-"+scheduleId).slider('values',0, startValue);
-            $("#slider-"+scheduleId).slider('values',1, endValue);
-            $("#schedule-"+scheduleId).val(startValue + "-" +endValue);
-        }
-        else
-        {
-             $("#slider-"+scheduleId).css('display', 'none');
-             $("#schedule-"+scheduleId).val(mode);
-        }
-    }
-    </script>
-    {% include 'common/footer.html' %}
-
-</body>
-</html>
