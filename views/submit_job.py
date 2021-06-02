@@ -139,6 +139,7 @@ def send_job():
                 job_to_submit = job_to_submit.replace("%" + param + "%", config.Config.USER_HOME + "/" + session["user"])
             else:
                 job_to_submit = job_to_submit.replace("%" + param + "%", request.form[param])
+    job_to_submit = job_to_submit.replace('%job_output_path%', config.Config.USER_HOME + "/" + session["user"] + "/soca_job_output")
 
 
     payload = base64.b64encode(job_to_submit.encode()).decode()
