@@ -186,7 +186,7 @@ with app.app_context():
 
     # Register routes
     app.config.from_object(app_config)
-    #enable debug
+    # my changes
     #debugpy.configure(subProcess = False)
     #debugpy.listen(('0.0.0.0', 56781))
     #debugpy.wait_for_client()
@@ -194,6 +194,7 @@ with app.app_context():
     pprint(dir(app_config))
     pprint('DDDDDDDDDDDDDDDDDDDDDDDDDD')
     pprint(dir(app))
+    #enable debug
     if app_config.DEBUG is True:
         app.debug = True
         app.wsgi_app = DebuggedApplication(app.wsgi_app, True)

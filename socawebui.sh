@@ -78,9 +78,9 @@ case "$1" in
             export SOCA_FLASK_API_ROOT_KEY=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
 
             # Launching process
-            #$UWSGI_BIN --master --https $UWSGI_BIND,cert.crt,cert.key --wsgi-file $UWSGI_FILE --processes $UWSGI_PROCESSES --threads $UWSGI_THREADS --daemonize logs/uwsgi.log --enable-threads --buffer-size $BUFFER_SIZE --check-static /apps/soca/$SOCA_CONFIGURATION/cluster_web_ui/static
-            #$UWSGI_BIN --honour-stdin --workers 1 --enable-threads  --https $UWSGI_BIND,cert.crt,cert.key --wsgi-file $UWSGI_FILE --check-static /apps/soca/$SOCA_CONFIGURATION/cluster_web_ui/static
-            $UWSGI_BIN --honour-stdin  --workers 1 --https $UWSGI_BIND,cert.crt,cert.key --wsgi-file $UWSGI_FILE --processes 1 --threads $UWSGI_THREADS  --enable-threads --buffer-size $BUFFER_SIZE --check-static /apps/soca/$SOCA_CONFIGURATION/cluster_web_ui/static
+            $UWSGI_BIN --master --https $UWSGI_BIND,cert.crt,cert.key --wsgi-file $UWSGI_FILE --processes $UWSGI_PROCESSES --threads $UWSGI_THREADS --daemonize logs/uwsgi.log --enable-threads --buffer-size $BUFFER_SIZE --check-static /apps/soca/$SOCA_CONFIGURATION/cluster_web_ui/static
+            # my changes
+            #$UWSGI_BIN --honour-stdin  --workers 1 --https $UWSGI_BIND,cert.crt,cert.key --wsgi-file $UWSGI_FILE --processes 1 --threads $UWSGI_THREADS  --enable-threads --buffer-size $BUFFER_SIZE --check-static /apps/soca/$SOCA_CONFIGURATION/cluster_web_ui/static
         else
            echo 'SOCA is already running with PIDs: ' $status_check_process
            echo 'Run "socawebui.sh stop" first.'
